@@ -26,3 +26,21 @@
 .no-touch #cd-vertical-nav a:hover .cd-label {
     /*    show labels*/
 }
+
+/*General css for touch devices*/
+
+.touch #cd-vertical-nav {
+    position: fixed;
+    z-index: 1;
+    right: 5%;
+    bottom: 30px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 90%;
+    transform: scale(0);
+    transition-property: transform;
+    transition-duration: 0.2s;
+}
+.touch #cd-vertical-nav.open {
+    transform: scale(1);
+}
