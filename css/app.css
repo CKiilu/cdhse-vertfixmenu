@@ -1,0 +1,28 @@
+/*Css when device has no touch input*/
+
+.no-touch #cd-vertical-nav {
+    /*    fix nav position*/
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+.no-touch #cd-vertical-nav a span {
+    float: right;
+    /*    scale down nav dots and labels*/
+    transform: scale(0.6);
+}
+.no-touch #cd-vertical-nav .cd-dot {
+    transform-origin: 50% 50%;
+}
+.no-touch #cd-vertical-nav .cd-label {
+    transform-origin: 100% 50%;
+}
+.no-touch #cd-vertical-nav a:hover span {
+    /*    scaleup nav dots and labels*/
+    transform: scale(1);
+}
+.no-touch #cd-vertical-nav a:hover .cd-label {
+    /*    show labels*/
+}
