@@ -1,56 +1,14 @@
-$(document).foundation();
-jQuery(document).ready(
-    function ($) {
-        var scrolling = false;
-        var contentSections = $('.cd-section'),
-            verticalNavigation = $('.cd-vertical-nav'),
-            navigationItems = verticalNavigation.find('a'),
-            navTrigger = $('.cd-nav-trigger'),
-            scrollArrow = $('.cd-scroll-down');
-
-        $(window).on('scroll', checkScroll);
-        //    smooth scroll to the selected section
-        verticalNavigation.on('click', 'a', function (event) {
-            event.preventDefault();
-            smoothScroll($(this.hash));
-            verticalNavigation.removeClass('open');
-        });
-        //    smooth scroll to second section
-        scrollArrow.on('click', function (event) {
-            event.preventDefault();
-            smoothScroll($(this.hash));
-        });
-        //    open navigation if user clicks trigger
-        navTrigger.on('click', function (event) {
-            event.preventDefault();
-            verticalNavigation.toggleClasss('open');
-        });
-
-        function checkScroll() {
-            if (!scrolling) {
-                scrolling = true;
-                (!window.requestAnimationFrame) ? setTimeout(updateSections, 300): window.requestAnimationFrame(updateSections);
-            }
-        }
-
-        function updateSections() {
-            var halfWindowHeight = $(window).height() / 2,
-                scrollTop = $(window).scrollTop();
-            contentSections.each(function () {
-                var section = $(this),
-                    sectionId = section.attr('id'),
-                    navigationItem = navigationItems.filter('[href^="#' + sectionId + '"]');
-                ((section.offset().top - halfWindowHeight < scrollTop)) ? navigationItem.addClass('active'):
-                    navigationItem.removeClass('active');
-            });
-            scrolling = false;
-        }
-
-        function smoothScroll(target) {
-            $('body,html').animate({
-                    'scrollTop': target.offset().top
-                },
-                300
-            );
-        }
+jQuery(document).ready(function ($) {
+    var contentSections = $('.cd-section'),
+        navigationItems = $('#cd-vertical-nav a');
+    updateNavigation();
+    $(window).on('scroll', function () {
+        updateNavigation();
     });
+
+    //    smooth scroll to section
+    navigationItems.on('click', function (event) {
+        event.preventDefault();
+        smoothScroll($(this.hash));
+    });
+})
