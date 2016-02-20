@@ -41,6 +41,6 @@
     transition-property: transform;
     transition-duration: 0.2s;
 }
-.touch #cd-vertical-nav.open {
+.touch #cd-vertical-nav .open {
     transform: scale(1);
 }
