@@ -1,0 +1,19 @@
+.cd-nav-trigger {
+    display: block;
+    position: fixed;
+    z-index: 2;
+    bottom: 30px;
+    right: 5%;
+}
+.cd-vertical-nav {
+    position: fixed;
+    z-index: 1;
+    right: 5%;
+    bottom: 30px;
+    transform: scale(0);
+    transform-origin: right bottom;
+    transition: transform 0.2s;
+}
+.cd-vertical-nav .open {
+    transform: scale(1);
+}
