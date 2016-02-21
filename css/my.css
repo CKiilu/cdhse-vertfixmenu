@@ -18,22 +18,35 @@
     transform: scale(1);
 }
 @media only screen and (min-width: 800px) {
-    .cd-vertical nav {
-        right: 0;
+    .cd-vertical-nav {
         top: 0;
+        right: 0;
         height: 100vh;
         width: 90px;
     }
-}
-.cd-verical-nav::before {
-    /*    nav bg*/
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    transform: translateX(100%);
-    transition: transform 0.4s;
+    .cd-verical-nav::before {
+        /*    nav bg*/
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateX(100%);
+        transition: transform 0.4s;
+    }
+    .no-touch .cd-vertical-nav:hover::before,
+    .touch .cd-vertical-nav::before {
+        transform: translate(0);
+    }
+    .cd-vertical-nav .label {
+        display: block;
+        transform: translateX(100%);
+        transition: transform 0.4s;
+    }
+    .no-touch .cd-vertical-nav:hover .label,
+    .touch .cd-vertical-nav. label {
+        transform: translateX(0);
+    }
 }
