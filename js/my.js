@@ -23,7 +23,7 @@ jQuery(document).ready(
         //    open navigation if user clicks trigger
         navTrigger.on('click', function (event) {
             event.preventDefault();
-            verticalNavigation.toggleClasss('open');
+            verticalNavigation.toggleClass('open');
         });
 
         function checkScroll() {
