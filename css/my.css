@@ -18,13 +18,14 @@
     transform: scale(1);
 }
 @media only screen and (min-width: 800px) {
+    /*    nav list and bg */
     .cd-vertical-nav {
         top: 0;
         right: 0;
         height: 100vh;
         width: 90px;
     }
-    .cd-verical-nav::before {
+    .cd-vertical-nav::before {
         /*    nav bg*/
         content: '';
         position: absolute;
@@ -48,5 +49,43 @@
     .no-touch .cd-vertical-nav:hover .label,
     .touch .cd-vertical-nav. label {
         transform: translateX(0);
+    }
+}
+@media only screen and (min-width: 800px) {
+    /*    nav icons and dots */
+    .cd-vertical-nav a {
+        position: relative;
+        padding: 3em 0 0;
+        margin: 1.4em auto;
+    }
+    .cd-vertical-nav a::before,
+    .cd-vertical-nav a::after {
+        /* create filled circle and bg icon*/
+        content: '';
+        position: absolute;
+        left: 50%;
+        transition: transform 0.4s 0s;
+    }
+    .cd-vertical-nav a::before {
+        /*        fill circle*/
+        top: 0;
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        background: #9a776f;
+        transform: translateX(-50%) scale(.25);
+    }
+    .cd-vertical-nav a::after {
+        top: 8px;
+        height: 16px;
+        width: 16px;
+        background: url(../img/cd-nav-icons.svg);
+        transform: translateX(-50%);
+    }
+    .no-touch .cd-vertical-nav:hover a::before,
+    .no-touch .cd-vertical-nav:hover a::after,
+    .touch .cd-vertical-nav li:nth-of-type(n) a::before,
+    .touch .cd-vertical-nav li:nth-of-type(n) a::after {
+        transform: translateX(-50%) scale(1);
     }
 }
